@@ -16,11 +16,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
 
-    useEffect(() => {
-        setTimeout(() => {
+        useEffect(() => {
+        const handle = setTimeout(() => {
             ScrollTrigger.refresh();
-        }, 200);
-    }, []);
+        }, 500);
+
+        return () => clearTimeout(handle);
+        }, []);
+
 
     return (
         <main>
