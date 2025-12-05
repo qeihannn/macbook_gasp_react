@@ -2,11 +2,10 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { performanceImages, performanceImgPositions } from "../constants/index.js";
-import { useMediaQuery } from "react-responsive";
+import {useMediaQuery} from "react-responsive";
 
 const Performance = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
-    const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });
     const sectionRef = useRef(null);
 
     useGSAP(
@@ -46,11 +45,12 @@ const Performance = () => {
                 },
             });
 
+            // Position Each Performance Image
             performanceImgPositions.forEach((item) => {
                 if (item.id === "p5") return;
-
+                                                
                 const selector = `.${item.id}`;
-                const vars = {};
+                const vars = {};                
 
                 if (typeof item.left === "number") vars.left = `${item.left}%`;
                 if (typeof item.right === "number") vars.right = `${item.right}%`;
@@ -66,16 +66,12 @@ const Performance = () => {
 
     return (
         <section id="performance" ref={sectionRef}>
-            <h2
-                style={{
-                    marginBottom: "80px",
-                    paddingTop: isDesktop ? "100px" : "0px", // Padding hanya untuk desktop
-                }}
-            >
-                Next-level graphics performance. Game on.
-            </h2>
+          <h2 style={{ marginBottom: "80px" }}>
+            Next-level graphics performance. Game on.
+          </h2>
 
-            <div className="wrapper">
+
+             <div className="wrapper">
                 {performanceImages.map((item, index) => (
                     <img
                         key={index}
@@ -84,7 +80,7 @@ const Performance = () => {
                         alt={item.alt || `Performance Image #${index + 1}`}
                     />
                 ))}
-            </div>
+             </div>
 
             <div className="content">
                 <p>
@@ -93,15 +89,14 @@ const Performance = () => {
                     second-generation hardware-accelerated ray tracing engine that renders
                     images faster, so gaming{" "}
                     <span className="text-white">
-                        feels more immersive and realistic than ever.
-                    </span>{" "}
+            feels more immersive and realistic than ever.
+          </span>{" "}
                     And Dynamic Caching optimizes fast on-chip memory to dramatically
                     increase average GPU utilization — driving a huge performance boost
                     for the most demanding pro apps and games.
                 </p>
             </div>
         </section>
-    );
-};
-
-export default Performance;
+    )
+}
+export default Performance
