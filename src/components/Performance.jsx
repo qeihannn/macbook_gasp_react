@@ -39,7 +39,7 @@ const Performance = () => {
                 scrollTrigger: {
                     trigger: sectionEl,
                     start: "top bottom",
-                    end: "bottom top",
+                    end: "center center",
                     scrub: 1,
                     invalidateOnRefresh: true,
                 },
@@ -65,7 +65,7 @@ const Performance = () => {
     );
 
     return (
-        <section id="performance" className="pt-170" ref={sectionRef}>
+        <section id="performance" ref={sectionRef}>
           <h2 className="mb-40">Next-level graphics performance. Game on.</h2>
 
              <div className="wrapper">
