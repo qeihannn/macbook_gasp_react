@@ -14,6 +14,8 @@ const Showcase = () => {
                     end: 'bottom top',
                     scrub: true,
                     pin: true,
+                    pinSpacing: true,
+                    invalidateOnRefresh: true,
                 }
             });
 
